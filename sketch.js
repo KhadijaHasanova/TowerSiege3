@@ -25,7 +25,7 @@ function setup() {
     world = engine.world;
     
     //create the ground
-    ground = new Ground(600,580,1200,20);
+    ground = new Ground(600,550,1200,20);
 
     //first set
 
