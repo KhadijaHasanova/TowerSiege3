@@ -3,7 +3,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
-var ground1,ground2;
+var ground,ground1,ground2;
 
 var box1,box2,box3,box4,box5,box6,box7,box8,box9,box10,box11,box12,box13,box14,box15,box16;
 
@@ -23,10 +23,13 @@ function setup() {
 
     engine = Engine.create();
     world = engine.world;
+    
+    //create the ground
+    ground = new Ground(600,580,1200,20);
 
     //first set
 
-    //create the ground
+    //create the stand
     ground1 = new Ground(520,550,500,20);
 
     //fourth layer
@@ -52,7 +55,7 @@ function setup() {
 
     //second set
 
-    //create the ground for the second set
+    //create the stand for the second set
     ground2 = new Ground(920,250,300,20);
 
     //third layer
@@ -86,8 +89,11 @@ function draw() {
 
     textSize(50);
     text("Drag and release the hexagonal stone to launch it",50,50);
+    
+    //display the ground
+    ground.display();
 
-    //display the ground for the first set
+    //display the stand for the first set
     ground1.display();
 
     //display the first set
@@ -108,7 +114,7 @@ function draw() {
     blue15.display();
     blue16.display();
 
-    //display the ground for the second set
+    //display the stand for the second set
     ground2.display();
 
     //display the second set
@@ -126,7 +132,6 @@ function draw() {
     imageMode(CENTER);
     image(polygonImg,this.polygon.position.x,this.polygon.position.y,40,40);
     
-
     //display the sling
     sling1.display();
     
