@@ -3,7 +3,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
-var ground,ground1,ground2;
+var ground,stand1,stand2;
 
 var box1,box2,box3,box4,box5,box6,box7,box8,box9,box10,box11,box12,box13,box14,box15,box16;
 
@@ -30,7 +30,7 @@ function setup() {
     //first set
 
     //create the stand
-    ground1 = new Ground(520,550,500,20);
+    stand1 = new Ground(520,550,500,20);
 
     //fourth layer
     blue1 = new BlueBox(400,520,40,40);
@@ -56,7 +56,7 @@ function setup() {
     //second set
 
     //create the stand for the second set
-    ground2 = new Ground(920,250,300,20);
+    stand2 = new Ground(920,250,300,20);
 
     //third layer
     pink1 = new PinkBox(840,220,40,40);
@@ -97,7 +97,7 @@ function draw() {
     ground.display();
 
     //display the stand for the first set
-    ground1.display();
+    stand1.display();
 
     //display the first set
     blue1.display();
@@ -118,7 +118,7 @@ function draw() {
     blue16.display();
 
     //display the stand for the second set
-    ground2.display();
+    stand2.display();
 
     //display the second set
     pink1.display();
