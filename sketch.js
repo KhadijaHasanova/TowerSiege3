@@ -33,25 +33,25 @@ function setup() {
     ground1 = new Ground(520,550,500,20);
 
     //fourth layer
-    blue1 = new BlueBox(400,500,40,40);
-    blue2 = new BlueBox(440,500,40,40);
-    blue3 = new BlueBox(480,500,40,40);
-    blue4 = new BlueBox(520,500,40,40);
-    blue5 = new BlueBox(560,500,40,40);
-    blue6 = new BlueBox(600,500,40,40);
-    blue7 = new BlueBox(640,500,40,40);
+    blue1 = new BlueBox(400,520,40,40);
+    blue2 = new BlueBox(440,520,40,40);
+    blue3 = new BlueBox(480,520,40,40);
+    blue4 = new BlueBox(520,520,40,40);
+    blue5 = new BlueBox(560,520,40,40);
+    blue6 = new BlueBox(600,520,40,40);
+    blue7 = new BlueBox(640,520,40,40);
     //third layer
-    blue8 = new BlueBox(440,450,40,40);
-    blue9 = new BlueBox(480,450,40,40);
-    blue10 = new BlueBox(520,450,40,40);
-    blue11 = new BlueBox(560,450,40,40);
-    blue12 = new BlueBox(600,450,40,40);
+    blue8 = new BlueBox(440,470,40,40);
+    blue9 = new BlueBox(480,470,40,40);
+    blue10 = new BlueBox(520,470,40,40);
+    blue11 = new BlueBox(560,470,40,40);
+    blue12 = new BlueBox(600,470,40,40);
     //second layer
-    blue13 = new BlueBox(480,400,40,40);
-    blue14 = new BlueBox(520,400,40,40);
-    blue15 = new BlueBox(560,400,40,40);
+    blue13 = new BlueBox(480,430,40,40);
+    blue14 = new BlueBox(520,430,40,40);
+    blue15 = new BlueBox(560,430,40,40);
     //first layer
-    blue16 = new BlueBox(520,350,40,40);
+    blue16 = new BlueBox(520,390,40,40);
 
     //second set
 
@@ -59,19 +59,19 @@ function setup() {
     ground2 = new Ground(920,250,300,20);
 
     //third layer
-    pink1 = new PinkBox(840,200,40,40);
-    pink2 = new PinkBox(880,200,40,40);
-    pink3 = new PinkBox(920,200,40,40);
-    pink4 = new PinkBox(960,200,40,40);
-    pink5 = new PinkBox(1000,200,40,40);
+    pink1 = new PinkBox(840,220,40,40);
+    pink2 = new PinkBox(880,220,40,40);
+    pink3 = new PinkBox(920,220,40,40);
+    pink4 = new PinkBox(960,220,40,40);
+    pink5 = new PinkBox(1000,220,40,40);
 
     //second layer
-    pink6 = new PinkBox(880,150,40,40);
-    pink7 = new PinkBox(920,150,40,40);
-    pink8 = new PinkBox(960,150,40,40);
+    pink6 = new PinkBox(880,170,40,40);
+    pink7 = new PinkBox(920,170,40,40);
+    pink8 = new PinkBox(960,170,40,40);
 
     //first layer
-    pink9 = new PinkBox(920,100,40,40);
+    pink9 = new PinkBox(920,130,40,40);
 
     //create the stone
     polygon = Bodies.circle(150,400,20);
@@ -87,9 +87,12 @@ function draw() {
     //set the background color
     background("lightgrey");
 
+    //display the instructions
     textSize(50);
     text("Drag and release the hexagonal stone to launch it",50,50);
-    
+    textSize(30);
+    text("Click space for another chance!!",800,550);
+
     //display the ground
     ground.display();
 
@@ -143,4 +146,10 @@ function mouseDragged() {
 
 function mouseReleased() {
     sling1.fly();
+}
+
+function keyPressed() {
+    if(keyCode === 32) {
+        sling1.attach(this.polygon);
+    }
 }
