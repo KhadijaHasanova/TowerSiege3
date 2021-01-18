@@ -91,7 +91,7 @@ function draw() {
     textSize(50);
     text("Drag and release the hexagonal stone to launch it",50,50);
     textSize(30);
-    text("Click space for another chance!!",800,550);
+    text("Click space for another chance!!",780,520);
 
     //display the ground
     ground.display();
