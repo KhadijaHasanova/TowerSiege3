@@ -13,6 +13,8 @@ var sling1;
 
 var polygon,polygonImg;
 
+var gameState = "attached";
+
 function preload() {
     polygonImg = loadImage("polygon.png");
 }
@@ -23,7 +25,8 @@ function setup() {
 
     engine = Engine.create();
     world = engine.world;
-    
+    Engine.run(engine);
+
     //create the ground
     ground = new Ground(600,580,1200,20);
 
@@ -79,8 +82,6 @@ function setup() {
 
     //create the sling
     sling1 = new SlingShot(this.polygon,{x:100,y:420});
-
-    Engine.run(engine);
 }
 
 function draw() {
@@ -141,15 +142,19 @@ function draw() {
 }
 
 function mouseDragged() {
-    Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
+    if(gameState === "attached") {
+        Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
+    }
 }
 
 function mouseReleased() {
     sling1.fly();
+    gameState = "launched";
 }
 
 function keyPressed() {
     if(keyCode === 32) {
         sling1.attach(this.polygon);
+        gameState = "attached";
     }
 }
