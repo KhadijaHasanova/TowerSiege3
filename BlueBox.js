@@ -8,7 +8,7 @@ class BlueBox {
     this.width = width;
     this.height = height;
 
-    var visibility = 255;
+    this.visibility = 255;
     
     World.add(world, this.body);
   }
