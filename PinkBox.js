@@ -8,7 +8,7 @@ class PinkBox {
     this.width = width;
     this.height = height;
 
-    var visibility = 225;
+    this.visibility = 225;
     
     World.add(world, this.body);
   }
