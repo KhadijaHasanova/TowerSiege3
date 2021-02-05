@@ -8,7 +8,7 @@ class BlueBox {
     this.width = width;
     this.height = height;
 
-    this.visibility = 255;
+    this.Visibility = 225;
     
     World.add(world, this.body);
   }
@@ -31,8 +31,7 @@ class BlueBox {
     else {
       World.remove(world,this.body);
       push();
-      this.visibility = this.visibility - 5;
-      tint(255,this.visiblity);
+      this.Visibility = this.Visibility - 5;
       pop();
     }
   }
