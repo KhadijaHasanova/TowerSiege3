@@ -15,8 +15,16 @@ var polygon,polygonImg;
 
 var gameState = "attached";
 
+var score = 0;
+
+var bg;
+
+var backgroundImg;
+
 function preload() {
-    polygonImg = loadImage("polygon.png");
+    polygonImg = loadImage("images/polygon.png");
+
+    backgroundImage();
 }
 
 function setup() {
@@ -85,8 +93,12 @@ function setup() {
 }
 
 function draw() {
-    //set the background color
-    background("lightgrey");
+    if(backgroundImg) {
+        background(backgroundImg);
+    }
+    //display the score
+    textSize(40);
+    text("Score: "+score,50,100);
 
     //display the instructions
     textSize(50);
@@ -138,6 +150,34 @@ function draw() {
     
     //display the sling
     sling1.display();
+
+    //increase the score
+    blue1.score();
+    blue2.score();
+    blue3.score();
+    blue4.score();
+    blue5.score();
+    blue6.score();
+    blue7.score();
+    blue8.score();
+    blue9.score();
+    blue10.score();
+    blue11.score();
+    blue12.score();
+    blue13.score();
+    blue14.score();
+    blue15.score();
+    blue16.score();
+
+    pink1.score();
+    pink2.score();
+    pink3.score();
+    pink4.score();
+    pink5.score();    
+    pink6.score();
+    pink7.score();
+    pink8.score();
+    pink9.score();
     
 }
 
@@ -157,4 +197,21 @@ function keyPressed() {
         sling1.attach(this.polygon);
         gameState = "attached";
     }
+}
+
+
+async function backgroundImage() {
+    var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+    var responeJSON = await response.json();
+
+    var datetime = responeJSON.datetime;
+    var hour = datetime.slice(11,13);
+
+    if(hour >= 06 && hour <= 18) {
+        bg = "images/light.jpeg";
+    }
+    else {
+        bg = "images/dark.jpeg";
+    }
+    backgroundImg = loadImage(bg);
 }

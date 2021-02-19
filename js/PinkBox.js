@@ -12,9 +12,14 @@ class PinkBox {
     
     World.add(world, this.body);
   }
+  
+  score() {
+    if(this.Visibility < 0 && this.Visibility > -105) {
+      score++;
+    }
+  }
 
   display(){
-    console.log(this.body.speed);
     if(this.body.speed < 3) {
       var pos = this.body.position;
       var angle = this.body.angle;

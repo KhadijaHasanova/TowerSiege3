@@ -13,8 +13,13 @@ class BlueBox {
     World.add(world, this.body);
   }
 
-  display(){
-    console.log(this.body.speed);
+  score() {
+    if(this.Visibility < 0 && this.Visibility > -105) {
+      score++;
+    }
+  }
+
+  display() {
     if(this.body.speed < 3) {
       var pos = this.body.position;
       var angle = this.body.angle;
